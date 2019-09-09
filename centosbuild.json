@@ -18,7 +18,7 @@
         "guest_os_type": "centos-64",
         "http_directory": "http",
         "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/kickstart_nofw.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7_nofw.cfg<enter><wait>"
         ]
     }
     ],
