@@ -23,6 +23,22 @@
     }
     ],
     "provisioners": [
+        {
+            "type": "file",
+            "source": "./packer.txt",
+            "destination": "/"
+        },
+        {
+            "type": "shell",
+            "inline":[
+                "ls -al /",
+                "cat /packer.txt"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "./runner.sh"
+        }
         
     ]
 }
