@@ -15,3 +15,5 @@ packer_cache/*
 *.vmx
 *.vmxf
 *.log
+*.lck
+*.vmem
