@@ -1,0 +1,60 @@
+{
+    "variables": {
+        "iso": "/Users/gary/iso/CentOS-7-x86_64-DVD-1908.iso",
+        "checksum": "9bba3da2876cb9fcf6c28fb636bcbd01832fe6d84cd7445fa58e44e569b3b4fe"
+    },
+    "builders": [
+    {
+        "remote_type": "esx5",
+        "remote_host": "192.168.0.2",
+        "remote_datastore": "VM_Datastore",
+        "remote_username": "remoteroot",
+        "remote_password": "remoterootpassword",
+        "format": "vmx",
+        "skip_export": true,
+        "keep_registered": true,
+        "disk_size": "20000",
+        "disk_type_id": "thin",
+        "disk_adapter_type": "PVSCSI",
+        "vnc_disable_password": true,
+        "disable_vnc": true,
+
+        
+        "type": "vmware-iso",
+
+        "name": "palmer_vmware",
+        "iso_url": "{{ user `iso` }}",
+        "iso_checksum": "{{ user `checksum` }}",
+        "iso_checksum_type": "sha256",
+        "ssh_username": "root",
+        "ssh_password": "rootpassword",
+        "ssh_timeout": "60000s",
+        "ssh_wait_timeout": "60000s",
+        "shutdown_command": "shutdown -P now",
+        "guest_os_type": "centos-64",
+        "floppy_files": [
+            "{{template_dir}}/http/ks.cfg"
+          ],
+        "floppy_label": "OEMDRV"
+    }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./packer.txt",
+            "destination": "/"
+        },
+        {
+            "type": "shell",
+            "inline":[
+                "ls -al /",
+                "cat /packer.txt"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "./runner.sh"
+        }
+        
+    ]
+}
