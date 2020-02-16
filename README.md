@@ -13,3 +13,6 @@ This command creates OEMDV.iso file with volume labeled 'OEMDRV' out of folder, 
 
 $ mkisofs -V OEMDRV -o OEMDRV.iso path/to/directory
 
+## windows
+got lots of info from https://github.com/StefanScherer/packer-windows
+
