@@ -63,9 +63,9 @@
             <UserData>
                 <ProductKey>
                     <!--
-                        Windows 2019 Server Retail key
+                        https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys 
                     -->
-                    <Key>T3WK6-R7N26-GKTHT-JDTCV-FJT33</Key>
+                    <Key>N69G4-B89J2-4G8F4-WWYCC-J464C</Key>
                     <WillShowUI>OnError</WillShowUI>
                 </ProductKey>
                 <AcceptEula>true</AcceptEula>
@@ -79,7 +79,7 @@
             <OEMInformation>
                 <HelpCustomized>false</HelpCustomized>
             </OEMInformation>
-            <ComputerName>vagrant-2019</ComputerName>
+            <ComputerName>PackerBox-2019</ComputerName>
             <TimeZone>Eastern Standard Time</TimeZone>
             <RegisteredOwner/>
         </component>
