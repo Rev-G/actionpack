@@ -7,6 +7,7 @@
     {
         "name": "palmer_vmware",
         "type": "vmware-iso",
+        "version": "16",
         "iso_url": "{{ user `iso` }}",
         "iso_checksum": "{{ user `checksum` }}",
         "iso_checksum_type": "sha256",
@@ -16,6 +17,7 @@
         "ssh_wait_timeout": "60000s",
         "shutdown_command": "shutdown -P now",
         "guest_os_type": "centos-64",
+        "disk_type_id": "0",
         "http_directory": "http",
         "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7_nofw.cfg<enter><wait>"
@@ -25,8 +27,8 @@
     "provisioners": [
         {
             "type": "file",
-            "source": "./packer.txt",
-            "destination": "/"
+            "source": "./http/packer.txt",
+            "destination": "/tmp/"
         },
         {
             "type": "shell",
@@ -37,7 +39,7 @@
         },
         {
             "type": "shell",
-            "script": "./runner.sh"
+            "script": "./scripts/runner.sh"
         }
         
     ]
