@@ -23,7 +23,10 @@
         "http_directory": "http",
         "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
-        ]
+        ],
+        "vmx_data" :{
+            "vhv.enable": "TRUE"
+        }
     }
     ],
     "provisioners": [

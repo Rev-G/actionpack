@@ -16,3 +16,6 @@ ansible-playbook -i inventory install.yml
 
 verify the containers
 docker ps
+
+## create sha 256
+shasum -a 256 {path to iso}
