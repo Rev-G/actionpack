@@ -7,6 +7,9 @@ export PACKER_LOG=1
 ## windows
 got lots of info from https://github.com/StefanScherer/packer-windows
 
+also some info here https://www.packer.io/guides/automatic-operating-system-installs/autounattend_windows.html
+
+
 ## awx
 packer vm build which gets everything ready for ansible awx install
 
