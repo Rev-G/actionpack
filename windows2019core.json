@@ -2,8 +2,8 @@
   "variables": {
     "vm_name": "Packer_Win2019",
     "iso_checksum_type": "sha256",
-    "iso_checksum": "c2175757919d8f9e6d015d4f288b80c96db9aca0d5383f8bf49afee6cd2829e6",
-    "iso_url": "/Users/gary/iso/en_windows_server_2019_updated_jan_2020_x64_dvd_9069e1c0.iso",
+    "iso_checksum": "DB8A91E451DB99193D6E371A9668C486D5B1013DBF02ABDC5D301BA06F29341B",
+    "iso_url": "/Users/gary/iso/en_windows_server_2019_updated_april_2020_x64_dvd_12d6dc63.iso",
     "winrm_password" : "Passw0rd",
     "winrm_username" : "Administrator"
   },
