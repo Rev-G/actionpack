@@ -4,6 +4,9 @@ packer build scripts for various os's
 ## packer logging
 export PACKER_LOG=1
 
+## packer build command line args
+https://www.packer.io/docs/commands/build/
+
 ## windows
 got lots of info from https://github.com/StefanScherer/packer-windows
 
