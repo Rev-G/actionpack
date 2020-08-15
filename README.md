@@ -18,9 +18,9 @@ packer vm build which gets everything ready for ansible awx install
 
 https://github.com/ansible/awx/blob/devel/INSTALL.md#docker-compose
 
-once system is up. simply install awx
-cd /tmp/awx/installer
-ansible-playbook -i inventory install.yml
+once system is up. simply install awx  
+cd /tmp/awx/installer  
+ansible-playbook -i inventory install.yml  
 
 verify the containers
 docker ps
