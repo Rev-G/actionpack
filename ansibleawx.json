@@ -1,7 +1,7 @@
 {
     "variables": {
-        "iso": "/Users/gary/iso/CentOS-7-x86_64-DVD-1908.iso",
-        "checksum": "9bba3da2876cb9fcf6c28fb636bcbd01832fe6d84cd7445fa58e44e569b3b4fe",
+        "iso": "/Users/gary/iso/CentOS-7-x86_64-Minimal-2003.iso",
+        "checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
         "dockeruser": "packer"
     },
     "builders": [
@@ -11,18 +11,17 @@
         "version": "16",
         "iso_url": "{{ user `iso` }}",
         "iso_checksum": "{{ user `checksum` }}",
-        "iso_checksum_type": "sha256",
         "ssh_username": "root",
         "ssh_password": "rootpassword",
         "ssh_timeout": "60000s",
         "shutdown_command": "shutdown -P now",
-        "guest_os_type": "centos-64",
+        "guest_os_type": "centos7-64",
         "cores": 2,
         "memory": 4000,
         "disk_type_id": "0",
         "http_directory": "http",
         "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7_nofw_minimal.cfg<enter><wait>"
         ],
         "vmx_data" :{
             "vhv.enable": "TRUE"
