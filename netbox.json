@@ -1,7 +1,8 @@
 {
     "variables": {
         "iso": "/Users/gary/iso/CentOS-7-x86_64-Minimal-2003.iso",
-        "checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193"
+        "checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
+        "dockeruser": "packer"
     },
     "builders": [
     {
@@ -15,7 +16,7 @@
         "ssh_timeout": "60000s",
         "shutdown_command": "shutdown -P now",
         "guest_os_type": "centos7-64",
-        "cores": 2,
+        "cores": 1,
         "memory": 2560,
         "disk_type_id": "0",
         "http_directory": "http",
@@ -32,6 +33,30 @@
             "type": "file",
             "source": "./http/packer.txt",
             "destination": "/tmp/"
+        },
+        {
+            "type": "shell",
+            "inline":[
+                "yum -y install epel-release",
+                "yum -y update",
+                "yum install -y yum-utils git",
+                "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo",
+                "yum install -y docker-ce docker-ce-cli containerd.io"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "usermod -aG docker {{ user `dockeruser` }}",
+                "systemctl enable --now docker"
+            ]
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "curl -L https://github.com/docker/compose/releases/download/1.27.2/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose",
+                "chmod +x /usr/local/bin/docker-compose"
+            ]
         }
     ]
 }
