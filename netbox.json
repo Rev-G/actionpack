@@ -2,11 +2,12 @@
     "variables": {
         "iso": "/Users/gary/iso/CentOS-7-x86_64-Minimal-2003.iso",
         "checksum": "sha256:659691c28a0e672558b003d223f83938f254b39875ee7559d1a4a14c79173193",
-        "dockeruser": "packer"
+        "dockeruser": "packer",
+        "outputpath": "/Users/gary/Virtual Machines.localized/packer_netbox.vmwarevm"
     },
     "builders": [
     {
-        "name": "packer_netbox",
+        "vm_name": "packer_netbox",
         "type": "vmware-iso",
         "version": "16",
         "iso_url": "{{ user `iso` }}",
@@ -25,7 +26,9 @@
         ],
         "vmx_data" :{
             "vhv.enable": "TRUE"
-        }
+        },
+        "output_directory": "{{ user `outputpath` }}",
+        "cleanup_remote_cache": true
     }
     ],
     "provisioners": [
